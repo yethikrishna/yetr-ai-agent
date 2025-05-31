@@ -7,15 +7,16 @@
 
 > **Advanced AI agent system that connects to multiple MCP (Model Context Protocol) servers simultaneously for intelligent task automation.**
 
-## 🌐 **Live Website & Demo**
+## 🌐 **Live Website & Interactive Demo**
 
-**🚀 [Try YETR AI Agent Live](https://yethikrishna.github.io/yetr-ai-agent/)**
+**🚀 [Visit YETR AI Agent Live](https://yethikrishna.github.io/yetr-ai-agent/)**
 
 Experience the full interactive demo with:
-- 💬 **Real-time Chat Interface** - Chat with YETR AI agent
+- 💬 **Real-time Chat Interface** - Chat with YETR AI agent and get intelligent responses
 - 📊 **GitHub Analysis Demo** - See repository analysis simulation  
 - 🔗 **MCP Integration Examples** - Explore multi-server connections
 - 📱 **Mobile Responsive** - Works perfectly on all devices
+- 🎯 **Intelligent Responses** - Context-aware conversation on multiple topics
 
 ## ✨ **Key Features**
 
@@ -37,6 +38,7 @@ Experience the full interactive demo with:
 - Context memory across conversations
 - Quick action buttons for common tasks
 - Mobile-optimized design
+- Intelligent responses to complex queries
 
 ### 🛠️ **Tool Discovery & Orchestration**
 - Automatic tool discovery across connected servers
@@ -94,14 +96,23 @@ Visit [yethikrishna.github.io/yetr-ai-agent](https://yethikrishna.github.io/yetr
    docker-compose up -d
    ```
 
-## 💬 **Interactive Demo Features**
+## 💬 **Interactive Chat Demo Features**
 
 The live website includes a fully functional chat demo where you can:
 
-- **Ask about GitHub Analysis**: "Analyze my repositories"
-- **Request Deployment Help**: "Help me deploy my React project"
-- **Explore MCP Integration**: "What servers can you connect to?"
-- **Get Architecture Info**: "How does YETR work internally?"
+- **Ask about GitHub Analysis**: "Can you analyze my GitHub repositories?"
+- **Request Deployment Help**: "How can you help me deploy my project?"
+- **Explore MCP Integration**: "What MCP servers can you connect to?"
+- **Get Architecture Info**: "Explain your system architecture"
+- **Learn About Features**: "What are your main capabilities?"
+
+### **Intelligent Response Categories:**
+- 📊 **GitHub Analysis** - Repository insights and code quality assessment
+- 🚀 **Deployment Guidance** - Multi-platform deployment strategies  
+- 🔗 **MCP Integration** - Server capabilities and connection details
+- 🏗️ **Architecture** - Technical system design and components
+- ⚡ **Features** - Core capabilities and functionality
+- 🤝 **Help & Support** - General assistance and guidance
 
 ## 📊 **Use Cases**
 
