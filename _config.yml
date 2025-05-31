@@ -1,0 +1,39 @@
+# GitHub Pages configuration for YETR AI Agent
+title: "YETR AI Agent"
+description: "Your Enhanced Task Runner - AI Agent with Multi-MCP Integration"
+baseurl: "/yetr-ai-agent"
+url: "https://yethikrishna.github.io"
+
+# Disable Jekyll processing for static HTML
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Include and exclude files
+include:
+  - index.html
+  - README.md
+  - DEPLOYMENT.md
+
+exclude:
+  - node_modules/
+  - .git/
+  - .gitignore
+  - src/
+  - package*.json
+  - next.config.js
+  - tailwind.config.js
+  - tsconfig.json
+  - netlify.toml
+  - .netlifyignore
+  - _redirects
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Social and metadata
+author: yethikrishna
+github_username: yethikrishna
+repository: yethikrishna/yetr-ai-agent
