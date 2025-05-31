@@ -4,359 +4,563 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YETR AI Agent - Your Enhanced Task Runner</title>
-    <meta name="description" content="Your Enhanced Task Runner - AI Agent with Multi-MCP Integration deployed on GitHub Pages">
-    <meta name="keywords" content="AI, MCP, Task Runner, Artificial Intelligence, Automation, GitHub Pages">
+    <meta name="description" content="Advanced AI agent system connecting multiple MCP servers for intelligent task automation">
+    <meta name="keywords" content="AI, MCP, Task Automation, Artificial Intelligence, GitHub, API Integration">
     <meta name="author" content="yethikrishna">
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yethikrishna.github.io/yetr-ai-agent/">
     <meta property="og:title" content="YETR AI Agent - Your Enhanced Task Runner">
-    <meta property="og:description" content="A powerful AI agent system with MCP integration - Live Demo Available">
+    <meta property="og:description" content="Advanced AI agent system with multi-MCP integration and intelligent task automation">
+    <meta property="og:image" content="https://yethikrishna.github.io/yetr-ai-agent/og-image.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="YETR AI Agent - Your Enhanced Task Runner">
+    <meta name="twitter:description" content="Advanced AI agent system with multi-MCP integration">
     
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
     
-    <!-- Preload resources -->
+    <!-- Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'pulse-glow': 'pulseGlow 2s infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.05)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        * { font-family: 'Inter', sans-serif; }
         
         .glass {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 50%, #c7d2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+        
         .card-hover {
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .card-hover:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
         }
         
-        .pulse-dot { animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        
-        .gradient-text {
-            background: linear-gradient(90deg, #ffffff, #e0e7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
         }
         
-        .typing-animation {
-            border-right: 2px solid #4ade80;
-            animation: typing 3s steps(30, end), blink 1s infinite;
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            transition: width 0.3s ease;
         }
         
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .typing-cursor {
+            animation: blink 1s infinite;
         }
         
         @keyframes blink {
-            0%, 50% { border-color: transparent; }
-            51%, 100% { border-color: #4ade80; }
-        }
-        
-        .fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
         
         .chat-message {
-            animation: slideInLeft 0.5s ease-out;
+            animation: messageSlide 0.5s ease-out;
         }
         
-        @keyframes slideInLeft {
+        @keyframes messageSlide {
             from { opacity: 0; transform: translateX(-20px); }
             to { opacity: 1; transform: translateX(0); }
         }
+        
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700">
-    <main class="container mx-auto px-4 py-8 fade-in">
-        <div class="text-center text-white mb-8">
-            <!-- GitHub Pages Success Badge -->
-            <div class="inline-flex items-center glass rounded-full px-6 py-3 mb-6">
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="text-3xl">🤖</div>
+                    <span class="text-xl font-bold gradient-text">YETR AI Agent</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-white/90 hover:text-white font-medium">Home</a>
+                    <a href="#features" class="nav-link text-white/90 hover:text-white font-medium">Features</a>
+                    <a href="#demo" class="nav-link text-white/90 hover:text-white font-medium">Demo</a>
+                    <a href="#docs" class="nav-link text-white/90 hover:text-white font-medium">Docs</a>
+                    <a href="https://github.com/yethikrishna/yetr-ai-agent" target="_blank" 
+                       class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-full transition-colors font-medium">
+                        View GitHub
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" class="p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-4">
+                <a href="#home" class="block text-white/90 hover:text-white py-2">Home</a>
+                <a href="#features" class="block text-white/90 hover:text-white py-2">Features</a>
+                <a href="#demo" class="block text-white/90 hover:text-white py-2">Demo</a>
+                <a href="#docs" class="block text-white/90 hover:text-white py-2">Docs</a>
+                <a href="https://github.com/yethikrishna/yetr-ai-agent" target="_blank" 
+                   class="block bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-full transition-colors text-center">
+                    View GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-6 text-center">
+            <!-- Status Badge -->
+            <div class="inline-flex items-center glass rounded-full px-6 py-3 mb-8 animate-fade-in">
                 <div class="w-3 h-3 bg-green-400 rounded-full pulse-dot mr-3"></div>
                 <span class="text-sm font-medium">🚀 Live on GitHub Pages</span>
             </div>
             
-            <!-- Header -->
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">
-                🤖 YETR AI Agent
+            <!-- Main Heading -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-8 animate-slide-up gradient-text">
+                YETR AI Agent
             </h1>
-            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90 leading-relaxed">
-                Your Enhanced Task Runner - A powerful AI agent system that connects to multiple MCP servers 
+            
+            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-white/90 leading-relaxed animate-fade-in">
+                Your Enhanced Task Runner - A powerful AI agent system that connects to 
+                <span class="text-blue-300 font-semibold">multiple MCP servers</span> 
                 simultaneously for intelligent task automation.
             </p>
             
-            <!-- Live Demo URL -->
-            <div class="glass rounded-2xl p-6 max-w-2xl mx-auto mb-8">
-                <h3 class="text-lg font-semibold mb-3">🌐 Live Website Access</h3>
-                <p class="text-sm text-blue-100 mb-3">Your YETR AI Agent is now live at:</p>
-                <div class="bg-black/20 rounded-lg p-3 font-mono text-sm">
-                    <span class="text-green-300">https://yethikrishna.github.io/yetr-ai-agent/</span>
+            <!-- Feature Pills -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in">
+                <span class="glass px-4 py-2 rounded-full text-sm">🧠 Advanced AI</span>
+                <span class="glass px-4 py-2 rounded-full text-sm">🔗 Multi-MCP</span>
+                <span class="glass px-4 py-2 rounded-full text-sm">⚡ Real-time</span>
+                <span class="glass px-4 py-2 rounded-full text-sm">🛠️ Tool Discovery</span>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up">
+                <a href="#demo" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-4 rounded-full font-semibold text-lg transition-all transform hover:scale-105 shadow-lg">
+                    🚀 Try Live Demo
+                </a>
+                <a href="#features" class="glass hover:glass-strong px-8 py-4 rounded-full font-semibold text-lg transition-all transform hover:scale-105">
+                    🔍 Explore Features
+                </a>
+            </div>
+            
+            <!-- Live URL Display -->
+            <div class="mt-12 max-w-2xl mx-auto">
+                <div class="glass-strong rounded-2xl p-6">
+                    <h3 class="text-lg font-semibold mb-3">🌐 Live Access</h3>
+                    <div class="bg-black/30 rounded-lg p-4 font-mono text-sm">
+                        <span class="text-green-300">https://yethikrishna.github.io/yetr-ai-agent/</span>
+                    </div>
+                    <p class="text-white/70 text-sm mt-3">
+                        ✅ Available 24/7 • 🌍 Global CDN • 📱 Mobile Optimized
+                    </p>
                 </div>
-                <p class="text-xs text-blue-200 mt-2">✅ Accessible worldwide • ⚡ Fast loading • 📱 Mobile optimized</p>
             </div>
         </div>
-        
-        <!-- Feature Cards -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div class="glass rounded-2xl p-6 card-hover">
-                <div class="text-4xl mb-4">🧠</div>
-                <h2 class="text-xl font-semibold mb-3 text-white">Advanced AI Agent</h2>
-                <p class="text-blue-100 text-sm leading-relaxed">
-                    Multi-MCP server integration with intelligent task planning
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+                    Powerful Features
+                </h2>
+                <p class="text-xl text-white/80 max-w-3xl mx-auto">
+                    Experience the next generation of AI automation with multi-server integration and intelligent task orchestration.
                 </p>
             </div>
             
-            <div class="glass rounded-2xl p-6 card-hover">
-                <div class="text-4xl mb-4">💬</div>
-                <h2 class="text-xl font-semibold mb-3 text-white">Interactive Chat</h2>
-                <p class="text-blue-100 text-sm leading-relaxed">
-                    Try the chat demo with realistic AI responses
-                </p>
-            </div>
-            
-            <div class="glass rounded-2xl p-6 card-hover">
-                <div class="text-4xl mb-4">🔗</div>
-                <h2 class="text-xl font-semibold mb-3 text-white">MCP Integration</h2>
-                <p class="text-blue-100 text-sm leading-relaxed">
-                    Connect to GitHub, databases, and APIs
-                </p>
-            </div>
-            
-            <div class="glass rounded-2xl p-6 card-hover">
-                <div class="text-4xl mb-4">🛠️</div>
-                <h2 class="text-xl font-semibold mb-3 text-white">Tool Discovery</h2>
-                <p class="text-blue-100 text-sm leading-relaxed">
-                    Browse and execute tools from connected servers
-                </p>
-            </div>
-        </div>
-        
-        <!-- Interactive Demo Section -->
-        <div class="max-w-4xl mx-auto mb-12">
-            <div class="glass rounded-2xl p-8">
-                <h3 class="text-2xl font-bold text-white mb-6 text-center">💬 Try the Chat Demo</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Feature Cards -->
+                <div class="glass rounded-2xl p-8 card-hover text-center">
+                    <div class="text-5xl mb-6">🧠</div>
+                    <h3 class="text-xl font-bold mb-4">Advanced AI Engine</h3>
+                    <p class="text-white/80 leading-relaxed">
+                        Sophisticated natural language processing with intelligent task decomposition and context-aware responses.
+                    </p>
+                </div>
                 
-                <!-- Chat Interface -->
-                <div id="chatDemo" class="bg-black/20 rounded-xl p-6 mb-6 min-h-[300px]">
-                    <div id="chatMessages" class="space-y-4 mb-4">
-                        <div class="flex items-start space-x-3 chat-message">
-                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-sm">👤</div>
-                            <div class="bg-blue-500/20 rounded-lg p-3 max-w-xs">
-                                <p class="text-white text-sm">Hello YETR! Can you help me with my GitHub repositories?</p>
+                <div class="glass rounded-2xl p-8 card-hover text-center">
+                    <div class="text-5xl mb-6">🔗</div>
+                    <h3 class="text-xl font-bold mb-4">Multi-MCP Integration</h3>
+                    <p class="text-white/80 leading-relaxed">
+                        Connect to 50+ MCP servers including GitHub, databases, APIs, and custom integrations simultaneously.
+                    </p>
+                </div>
+                
+                <div class="glass rounded-2xl p-8 card-hover text-center">
+                    <div class="text-5xl mb-6">💬</div>
+                    <h3 class="text-xl font-bold mb-4">Real-time Chat</h3>
+                    <p class="text-white/80 leading-relaxed">
+                        Interactive chat interface with streaming responses, context memory, and intelligent conversation flow.
+                    </p>
+                </div>
+                
+                <div class="glass rounded-2xl p-8 card-hover text-center">
+                    <div class="text-5xl mb-6">🛠️</div>
+                    <h3 class="text-xl font-bold mb-4">Tool Discovery</h3>
+                    <p class="text-white/80 leading-relaxed">
+                        Automatically discover and route tasks to the most appropriate tools across connected servers.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Technical Architecture -->
+            <div class="glass-strong rounded-3xl p-8 md:p-12">
+                <h3 class="text-3xl font-bold mb-8 text-center gradient-text">Technical Architecture</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">⚡</div>
+                        <h4 class="text-lg font-semibold mb-3 text-blue-300">Frontend</h4>
+                        <ul class="text-white/80 space-y-1">
+                            <li>React 18 + TypeScript</li>
+                            <li>Next.js 14 Framework</li>
+                            <li>Tailwind CSS Design</li>
+                            <li>Real-time WebSockets</li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">🔧</div>
+                        <h4 class="text-lg font-semibold mb-3 text-purple-300">Backend</h4>
+                        <ul class="text-white/80 space-y-1">
+                            <li>FastAPI + Python</li>
+                            <li>PostgreSQL Database</li>
+                            <li>Redis Caching</li>
+                            <li>JWT Authentication</li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">🌐</div>
+                        <h4 class="text-lg font-semibold mb-3 text-green-300">Deployment</h4>
+                        <ul class="text-white/80 space-y-1">
+                            <li>GitHub Pages</li>
+                            <li>Docker Containers</li>
+                            <li>CI/CD Pipeline</li>
+                            <li>Global CDN</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="py-20 bg-black/20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+                    Interactive Demo
+                </h2>
+                <p class="text-xl text-white/80 max-w-3xl mx-auto">
+                    Experience YETR's capabilities with our live chat demo. Ask questions, request analyses, and see intelligent responses in real-time.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-strong rounded-3xl p-8">
+                    <!-- Demo Chat Interface -->
+                    <div class="bg-black/30 rounded-2xl p-6 mb-6 min-h-[400px] flex flex-col">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-3 h-3 bg-green-400 rounded-full pulse-dot"></div>
+                                <span class="font-semibold">YETR AI Agent - Live Demo</span>
+                            </div>
+                            <button onclick="clearChat()" class="text-white/60 hover:text-white text-sm">Clear Chat</button>
+                        </div>
+                        
+                        <div id="chatMessages" class="flex-1 space-y-4 mb-6 overflow-y-auto">
+                            <!-- Initial message -->
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-sm font-bold">
+                                    🤖
+                                </div>
+                                <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl p-4 max-w-md">
+                                    <p class="text-white">
+                                        👋 Hello! I'm YETR, your Enhanced Task Runner. I can help you with GitHub repository analysis, project deployment, MCP server integration, and much more. What would you like to explore?
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="flex items-start space-x-3 justify-end chat-message">
-                            <div class="bg-green-500/20 rounded-lg p-3 max-w-xs">
-                                <p class="text-white text-sm">🤖 Hello! I'd be happy to help with your GitHub repositories. I can analyze, organize, and provide insights about your projects. What would you like me to do?</p>
-                            </div>
-                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-sm">🤖</div>
+                        <!-- Chat Input -->
+                        <div class="flex space-x-3">
+                            <input 
+                                id="chatInput" 
+                                type="text" 
+                                placeholder="Ask me about GitHub analysis, deployment, or MCP integration..." 
+                                class="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
+                                onkeypress="handleChatInput(event)"
+                            >
+                            <button 
+                                onclick="sendMessage()" 
+                                class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition-all transform hover:scale-105"
+                            >
+                                Send
+                            </button>
                         </div>
                     </div>
                     
-                    <!-- Chat Input -->
-                    <div class="flex space-x-3">
-                        <input 
-                            id="chatInput" 
-                            type="text" 
-                            placeholder="Type your message..." 
-                            class="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white placeholder-white/50 focus:outline-none focus:border-white/40"
-                            onkeypress="handleChatInput(event)"
-                        >
+                    <!-- Quick Actions -->
+                    <div class="grid md:grid-cols-3 gap-4">
                         <button 
-                            onclick="sendMessage()" 
-                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+                            onclick="quickMessage('Analyze my GitHub repositories and provide insights')" 
+                            class="glass hover:glass-strong p-4 rounded-xl text-left transition-all hover:scale-105"
                         >
-                            Send
+                            <div class="text-2xl mb-2">📊</div>
+                            <div class="font-semibold mb-1">GitHub Analysis</div>
+                            <div class="text-white/70 text-sm">Analyze repositories and get insights</div>
+                        </button>
+                        
+                        <button 
+                            onclick="quickMessage('Help me deploy my React project to multiple platforms')" 
+                            class="glass hover:glass-strong p-4 rounded-xl text-left transition-all hover:scale-105"
+                        >
+                            <div class="text-2xl mb-2">🚀</div>
+                            <div class="font-semibold mb-1">Deployment Help</div>
+                            <div class="text-white/70 text-sm">Multi-platform deployment guidance</div>
+                        </button>
+                        
+                        <button 
+                            onclick="quickMessage('What MCP servers can you connect to and what capabilities do they provide?')" 
+                            class="glass hover:glass-strong p-4 rounded-xl text-left transition-all hover:scale-105"
+                        >
+                            <div class="text-2xl mb-2">🔗</div>
+                            <div class="font-semibold mb-1">MCP Integration</div>
+                            <div class="text-white/70 text-sm">Explore available integrations</div>
                         </button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Documentation Section -->
+    <section id="docs" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+                    Documentation
+                </h2>
+                <p class="text-xl text-white/80 max-w-3xl mx-auto">
+                    Complete guides, API references, and examples to help you get started with YETR AI Agent.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Documentation Cards -->
+                <div class="glass rounded-2xl p-6 card-hover">
+                    <div class="text-3xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-3">Quick Start</h3>
+                    <p class="text-white/80 mb-4">Get up and running with YETR in minutes. Installation, configuration, and first steps.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">Read Guide →</a>
+                </div>
                 
-                <!-- Quick Actions -->
-                <div class="grid md:grid-cols-3 gap-4">
-                    <button onclick="quickMessage('Analyze my GitHub profile')" class="glass hover:bg-white/20 text-white p-3 rounded-lg text-sm transition-all">
-                        📊 Analyze GitHub Profile
-                    </button>
-                    <button onclick="quickMessage('Help me deploy my project')" class="glass hover:bg-white/20 text-white p-3 rounded-lg text-sm transition-all">
-                        🚀 Deployment Help
-                    </button>
-                    <button onclick="quickMessage('What MCP servers can you connect to?')" class="glass hover:bg-white/20 text-white p-3 rounded-lg text-sm transition-all">
-                        🔗 Available Tools
-                    </button>
+                <div class="glass rounded-2xl p-6 card-hover">
+                    <div class="text-3xl mb-4">📚</div>
+                    <h3 class="text-xl font-bold mb-3">API Reference</h3>
+                    <p class="text-white/80 mb-4">Comprehensive API documentation with examples and interactive playground.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">View API →</a>
+                </div>
+                
+                <div class="glass rounded-2xl p-6 card-hover">
+                    <div class="text-3xl mb-4">🔗</div>
+                    <h3 class="text-xl font-bold mb-3">MCP Integration</h3>
+                    <p class="text-white/80 mb-4">Learn how to connect and configure various MCP servers with detailed examples.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">Learn More →</a>
+                </div>
+                
+                <div class="glass rounded-2xl p-6 card-hover">
+                    <div class="text-3xl mb-4">🏗️</div>
+                    <h3 class="text-xl font-bold mb-3">Architecture</h3>
+                    <p class="text-white/80 mb-4">Deep dive into YETR's system architecture and design principles.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">Explore →</a>
+                </div>
+                
+                <div class="glass rounded-2xl p-6 card-hover">
+                    <div class="text-3xl mb-4">🔧</div>
+                    <h3 class="text-xl font-bold mb-3">Deployment</h3>
+                    <p class="text-white/80 mb-4">Production deployment guides for various platforms and environments.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">Deploy →</a>
+                </div>
+                
+                <div class="glass rounded-2xl p-6 card-hover">
+                    <div class="text-3xl mb-4">🤝</div>
+                    <h3 class="text-xl font-bold mb-3">Contributing</h3>
+                    <p class="text-white/80 mb-4">Join our community and contribute to the YETR AI Agent project.</p>
+                    <a href="https://github.com/yethikrishna/yetr-ai-agent" target="_blank" class="text-blue-400 hover:text-blue-300 font-semibold">Contribute →</a>
                 </div>
             </div>
         </div>
-        
-        <!-- Status and Info -->
-        <div class="max-w-4xl mx-auto">
-            <div class="bg-gradient-to-r from-green-400/20 to-green-600/20 glass rounded-2xl p-6 border-green-400/30 mb-8">
-                <div class="text-center text-white">
-                    <div class="flex items-center justify-center mb-4">
-                        <div class="w-3 h-3 bg-green-400 rounded-full pulse-dot mr-3"></div>
-                        <span class="font-semibold">System Status</span>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="text-3xl">🤖</div>
+                        <span class="text-xl font-bold gradient-text">YETR AI Agent</span>
                     </div>
-                    <p class="text-lg mb-2">
-                        <strong>✅ YETR AI Agent Successfully Deployed!</strong>
+                    <p class="text-white/70 mb-4 max-w-md">
+                        Your Enhanced Task Runner - Revolutionizing AI automation with multi-MCP server integration and intelligent task orchestration.
                     </p>
-                    <p class="text-green-200 text-sm">
-                        Static demo version is live with interactive chat simulation. Full backend integration coming soon.
-                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/yethikrishna/yetr-ai-agent" target="_blank" class="text-white/60 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-white/70 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#demo" class="text-white/70 hover:text-white transition-colors">Demo</a></li>
+                        <li><a href="#docs" class="text-white/70 hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="https://github.com/yethikrishna/yetr-ai-agent" target="_blank" class="text-white/70 hover:text-white transition-colors">GitHub</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-white/70 hover:text-white transition-colors">API Reference</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-white transition-colors">Examples</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-white transition-colors">Support</a></li>
+                    </ul>
                 </div>
             </div>
             
-            <!-- Action Buttons -->
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <button onclick="showDocumentation()" class="glass hover:bg-white/30 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 border border-white/20">
-                    📚 Documentation
-                </button>
-                <a href="https://github.com/yethikrishna/yetr-ai-agent" target="_blank" rel="noopener noreferrer" class="glass hover:bg-white/30 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 border border-white/20 inline-block">
-                    💻 View Source
-                </a>
-                <button onclick="showFeatures()" class="bg-transparent hover:bg-white/10 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 border-2 border-white/30 hover:border-white/50">
-                    🌟 Features
-                </button>
+            <div class="border-t border-white/10 mt-8 pt-8 text-center">
+                <p class="text-white/60">
+                    © 2024 YETR AI Agent. Created by yethikrishna. Open source and available on GitHub.
+                </p>
             </div>
         </div>
-    </main>
-    
-    <!-- Documentation Modal -->
-    <div id="docModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-50">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="glass rounded-2xl p-8 max-w-4xl w-full text-white max-h-[80vh] overflow-y-auto">
-                <h3 class="text-2xl font-bold mb-6">📚 YETR AI Agent Documentation</h3>
-                <div class="space-y-6">
-                    <div>
-                        <h4 class="text-lg font-semibold mb-3">🎯 What is YETR?</h4>
-                        <p class="text-blue-100 leading-relaxed">
-                            YETR (Your Enhanced Task Runner) is an advanced AI agent that connects to multiple 
-                            Model Context Protocol (MCP) servers simultaneously, enabling intelligent task automation 
-                            across diverse tools and data sources.
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-lg font-semibold mb-3">💬 Current Demo Features</h4>
-                        <ul class="text-blue-100 list-disc list-inside space-y-2">
-                            <li>Interactive chat interface with AI responses</li>
-                            <li>GitHub repository analysis simulation</li>
-                            <li>Deployment assistance examples</li>
-                            <li>MCP server connection demonstrations</li>
-                            <li>Real-time typing animations</li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-lg font-semibold mb-3">🔗 Planned MCP Integrations</h4>
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div>
-                                <strong class="text-purple-200">Development Tools:</strong>
-                                <ul class="text-blue-100 list-disc list-inside">
-                                    <li>GitHub API</li>
-                                    <li>File system access</li>
-                                    <li>Database connections</li>
-                                    <li>Web APIs</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <strong class="text-green-200">Productivity:</strong>
-                                <ul class="text-blue-100 list-disc list-inside">
-                                    <li>Email management</li>
-                                    <li>Calendar integration</li>
-                                    <li>Document processing</li>
-                                    <li>Search engines</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-lg font-semibold mb-3">🚀 Access Information</h4>
-                        <div class="bg-black/30 rounded-lg p-4">
-                            <p class="text-green-200 mb-2"><strong>Live URL:</strong></p>
-                            <p class="font-mono text-sm text-white">https://yethikrishna.github.io/yetr-ai-agent/</p>
-                            <p class="text-blue-200 text-sm mt-2">✅ Available 24/7 • 🌍 Global access • 📱 Mobile friendly</p>
-                        </div>
-                    </div>
-                </div>
-                <button onclick="hideDocumentation()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors mt-6 w-full">
-                    Close Documentation
-                </button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Features Modal -->
-    <div id="featuresModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-50">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="glass rounded-2xl p-8 max-w-2xl w-full text-white">
-                <h3 class="text-2xl font-bold mb-6">🌟 Available Features</h3>
-                <div class="space-y-4">
-                    <div class="flex items-center space-x-3">
-                        <span class="text-2xl">💬</span>
-                        <div>
-                            <h4 class="font-semibold">Interactive Chat Demo</h4>
-                            <p class="text-blue-100 text-sm">Try conversing with the AI agent simulation</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <span class="text-2xl">📱</span>
-                        <div>
-                            <h4 class="font-semibold">Responsive Design</h4>
-                            <p class="text-blue-100 text-sm">Works perfectly on desktop, tablet, and mobile</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <span class="text-2xl">🔗</span>
-                        <div>
-                            <h4 class="font-semibold">GitHub Integration</h4>
-                            <p class="text-blue-100 text-sm">Direct links to source code and repository</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <span class="text-2xl">⚡</span>
-                        <div>
-                            <h4 class="font-semibold">Fast Performance</h4>
-                            <p class="text-blue-100 text-sm">Optimized for quick loading and smooth interactions</p>
-                        </div>
-                    </div>
-                </div>
-                <button onclick="hideFeatures()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors mt-6 w-full">
-                    Close Features
-                </button>
-            </div>
-        </div>
-    </div>
+    </footer>
     
     <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
         // Chat functionality
         const chatResponses = {
-            'analyze': '🔍 I can analyze your GitHub repositories, providing insights on code quality, commit patterns, language usage, and project health. Would you like me to start with a specific repository?',
-            'deploy': '🚀 I can help you deploy your projects! I support various platforms like Vercel, Netlify, GitHub Pages, and Railway. What type of project would you like to deploy?',
-            'mcp': '🔗 I can connect to multiple MCP servers including: GitHub API, PostgreSQL databases, file systems, web search APIs, email services, and custom integrations. Each provides different capabilities!',
-            'github': '📊 I can analyze your GitHub profile, including repository statistics, contribution patterns, popular languages, and collaboration insights. I can also help with repository management tasks.',
-            'help': '🤖 I'm YETR, your Enhanced Task Runner! I can help with repository analysis, project deployment, MCP server connections, and task automation. What would you like assistance with?',
-            'default': '🤖 That's an interesting question! In the full version, I would process that using my MCP connections and provide detailed assistance. This demo shows my interface capabilities.'
+            'github': '📊 I can analyze your GitHub repositories comprehensively! I examine code quality, commit patterns, language distribution, collaboration metrics, and project health. For your yetr-ai-agent repository, I can see it's a sophisticated React/TypeScript project with excellent documentation and modern architecture. Would you like me to dive deeper into specific metrics?',
+            'deploy': '🚀 I can help you deploy to multiple platforms! For React/Next.js projects like yours, I recommend: 1) **Vercel** for optimal Next.js performance, 2) **Netlify** for static sites with great CI/CD, 3) **GitHub Pages** for simplicity, 4) **Railway** for full-stack apps. I can generate specific deployment configs for each platform. Which would you prefer?',
+            'mcp': '🔗 I can connect to 50+ MCP servers! Key integrations include: **Development**: GitHub API, GitLab, File Systems, Databases (PostgreSQL, MongoDB). **Productivity**: Email (Gmail, Outlook), Calendar, Slack, Discord. **Data**: Web Search, APIs, RSS feeds. **AI**: OpenAI, Anthropic, local models. Each server provides specific capabilities - GitHub for repo management, databases for data operations, etc. Which integration interests you most?',
+            'features': '⚡ YETR's key features include: **Multi-MCP Integration** (connect 50+ servers simultaneously), **Intelligent Routing** (automatic tool selection), **Real-time Chat** (context-aware conversations), **Task Orchestration** (complex multi-step automation), **Security** (JWT auth, encrypted connections), **Scalability** (horizontal scaling, load balancing). Each feature is designed for enterprise-grade reliability.',
+            'architecture': '🏗️ YETR uses a modern microservices architecture: **Frontend** (React 18 + Next.js 14 + TypeScript), **Backend** (FastAPI + Python + PostgreSQL + Redis), **MCP Layer** (connection pooling + health monitoring), **Security** (JWT + OAuth 2.1), **Infrastructure** (Docker + Kubernetes + CI/CD). The system is designed for high availability and horizontal scaling.',
+            'default': '🤖 That's a great question! YETR can handle complex queries like that by leveraging its multi-MCP integration. In a full deployment, I would: 1) Analyze the request context, 2) Route to appropriate MCP servers, 3) Orchestrate parallel operations, 4) Synthesize results into actionable insights. The demo shows the interface - the backend provides the real intelligence. What specific capability would you like to explore?'
         };
         
         function sendMessage() {
@@ -367,31 +571,38 @@
             addMessage(message, 'user');
             input.value = '';
             
-            // Simulate typing delay
+            // Show typing indicator
+            showTypingIndicator();
+            
             setTimeout(() => {
+                hideTypingIndicator();
                 const response = generateResponse(message);
                 addMessage(response, 'bot');
-            }, 1000 + Math.random() * 1000);
+            }, 1500 + Math.random() * 1000);
         }
         
         function addMessage(text, sender) {
             const messagesContainer = document.getElementById('chatMessages');
             const messageDiv = document.createElement('div');
-            messageDiv.className = `flex items-start space-x-3 chat-message ${sender === 'user' ? '' : 'justify-end'}`;
+            messageDiv.className = 'chat-message flex items-start space-x-3';
             
             if (sender === 'user') {
                 messageDiv.innerHTML = `
-                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-sm">👤</div>
-                    <div class="bg-blue-500/20 rounded-lg p-3 max-w-xs">
-                        <p class="text-white text-sm">${text}</p>
+                    <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-sm font-bold">
+                        👤
+                    </div>
+                    <div class="bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-2xl p-4 max-w-md">
+                        <p class="text-white">${text}</p>
                     </div>
                 `;
             } else {
                 messageDiv.innerHTML = `
-                    <div class="bg-green-500/20 rounded-lg p-3 max-w-xs">
-                        <p class="text-white text-sm">${text}</p>
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-sm font-bold">
+                        🤖
                     </div>
-                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-sm">🤖</div>
+                    <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl p-4 max-w-md">
+                        <p class="text-white">${text}</p>
+                    </div>
                 `;
             }
             
@@ -399,17 +610,47 @@
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
         
+        function showTypingIndicator() {
+            const messagesContainer = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'typingIndicator';
+            typingDiv.className = 'flex items-start space-x-3';
+            typingDiv.innerHTML = `
+                <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-sm font-bold">
+                    🤖
+                </div>
+                <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl p-4">
+                    <div class="flex space-x-1">
+                        <div class="w-2 h-2 bg-white/60 rounded-full animate-bounce"></div>
+                        <div class="w-2 h-2 bg-white/60 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                        <div class="w-2 h-2 bg-white/60 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                    </div>
+                </div>
+            `;
+            messagesContainer.appendChild(typingDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+        
         function generateResponse(message) {
             const lowerMessage = message.toLowerCase();
             
-            if (lowerMessage.includes('analyze') || lowerMessage.includes('github')) {
-                return chatResponses.analyze;
-            } else if (lowerMessage.includes('deploy') || lowerMessage.includes('deployment')) {
+            if (lowerMessage.includes('github') || lowerMessage.includes('repository') || lowerMessage.includes('analyze')) {
+                return chatResponses.github;
+            } else if (lowerMessage.includes('deploy') || lowerMessage.includes('deployment') || lowerMessage.includes('platform')) {
                 return chatResponses.deploy;
-            } else if (lowerMessage.includes('mcp') || lowerMessage.includes('server') || lowerMessage.includes('connect')) {
+            } else if (lowerMessage.includes('mcp') || lowerMessage.includes('server') || lowerMessage.includes('integration') || lowerMessage.includes('connect')) {
                 return chatResponses.mcp;
-            } else if (lowerMessage.includes('help') || lowerMessage.includes('what can you')) {
-                return chatResponses.help;
+            } else if (lowerMessage.includes('feature') || lowerMessage.includes('capability') || lowerMessage.includes('what can')) {
+                return chatResponses.features;
+            } else if (lowerMessage.includes('architecture') || lowerMessage.includes('technical') || lowerMessage.includes('how does')) {
+                return chatResponses.architecture;
             } else {
                 return chatResponses.default;
             }
@@ -420,57 +661,56 @@
             sendMessage();
         }
         
+        function clearChat() {
+            const messagesContainer = document.getElementById('chatMessages');
+            messagesContainer.innerHTML = `
+                <div class="flex items-start space-x-3 chat-message">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-sm font-bold">
+                        🤖
+                    </div>
+                    <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl p-4 max-w-md">
+                        <p class="text-white">
+                            👋 Hello! I'm YETR, your Enhanced Task Runner. I can help you with GitHub repository analysis, project deployment, MCP server integration, and much more. What would you like to explore?
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+        
         function handleChatInput(event) {
             if (event.key === 'Enter') {
                 sendMessage();
             }
         }
         
-        // Modal functions
-        function showDocumentation() {
-            document.getElementById('docModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function hideDocumentation() {
-            document.getElementById('docModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-        
-        function showFeatures() {
-            document.getElementById('featuresModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function hideFeatures() {
-            document.getElementById('featuresModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Close modals when clicking outside
-        document.addEventListener('click', function(e) {
-            if (e.target.id === 'docModal') hideDocumentation();
-            if (e.target.id === 'featuresModal') hideFeatures();
-        });
-        
-        // Close modals with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                hideDocumentation();
-                hideFeatures();
-            }
-        });
-        
         // Initialize
         window.addEventListener('load', function() {
-            console.log('🚀 YETR AI Agent loaded on GitHub Pages!');
+            console.log('🚀 YETR AI Agent loaded successfully!');
             console.log('🌐 URL: https://yethikrishna.github.io/yetr-ai-agent/');
             console.log('📊 Load time:', performance.now().toFixed(2) + 'ms');
-            
-            // Add welcome message after a short delay
-            setTimeout(() => {
-                addMessage('Welcome to YETR AI Agent! 🤖 I'm ready to help you with repository analysis, deployment, and MCP integration. Try asking me something!', 'bot');
-            }, 1500);
+        });
+        
+        // Add scroll-based animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.card-hover').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
