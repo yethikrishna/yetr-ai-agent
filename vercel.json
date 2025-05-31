@@ -1,20 +1,7 @@
 {
-  "name": "yetr-ai-agent",
   "version": 2,
-  "framework": "nextjs",
-  "buildCommand": "cd frontend && npm run build",
+  "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/.next",
-  "installCommand": "cd frontend && npm install",
   "devCommand": "cd frontend && npm run dev",
-  "functions": {
-    "frontend/src/pages/api/**": {
-      "runtime": "nodejs18.x"
-    }
-  },
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/frontend/src/pages/api/$1"
-    }
-  ]
+  "framework": "nextjs"
 }
