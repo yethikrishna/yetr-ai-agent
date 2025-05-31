@@ -1,0 +1,23 @@
+# Ignore Next.js development files
+src/
+.next/
+node_modules/
+.env*.local
+
+# Ignore build artifacts that aren't needed for static deployment
+package-lock.json
+yarn.lock
+tsconfig.json
+next.config.js
+tailwind.config.js
+postcss.config.js
+
+# Ignore development tools
+.eslintrc.json
+.gitignore
+
+# Keep only the essential static files
+!index.html
+!DEPLOYMENT.md
+!README.md
+!netlify.toml
