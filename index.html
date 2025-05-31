@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YETR AI Agent - Your Enhanced Task Runner</title>
+    <meta name="description" content="Your Enhanced Task Runner - AI Agent with Multi-MCP Integration">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #ffffff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700">
+    <main class="container mx-auto px-4 py-16">
+        <div class="text-center text-white">
+            <!-- Header -->
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text">
+                🤖 YETR AI Agent
+            </h1>
+            <p class="text-xl md:text-2xl mb-12 max-w-4xl mx-auto opacity-90 leading-relaxed">
+                Your Enhanced Task Runner - A powerful AI agent system that connects to multiple MCP servers 
+                simultaneously for intelligent task automation.
+            </p>
+            
+            <!-- Feature Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="glass rounded-2xl p-6 card-hover">
+                    <div class="text-4xl mb-4">🧠</div>
+                    <h2 class="text-xl font-semibold mb-3">Advanced AI Agent</h2>
+                    <p class="text-blue-100 text-sm leading-relaxed">
+                        Multi-MCP server integration with intelligent task planning and execution
+                    </p>
+                </div>
+                
+                <div class="glass rounded-2xl p-6 card-hover">
+                    <div class="text-4xl mb-4">💬</div>
+                    <h2 class="text-xl font-semibold mb-3">Real-time Chat</h2>
+                    <p class="text-blue-100 text-sm leading-relaxed">
+                        Interactive interface with streaming responses and context awareness
+                    </p>
+                </div>
+                
+                <div class="glass rounded-2xl p-6 card-hover">
+                    <div class="text-4xl mb-4">🔗</div>
+                    <h2 class="text-xl font-semibold mb-3">MCP Management</h2>
+                    <p class="text-blue-100 text-sm leading-relaxed">
+                        Connect and manage multiple Model Context Protocol servers
+                    </p>
+                </div>
+                
+                <div class="glass rounded-2xl p-6 card-hover">
+                    <div class="text-4xl mb-4">🛠️</div>
+                    <h2 class="text-xl font-semibold mb-3">Tool Discovery</h2>
+                    <p class="text-blue-100 text-sm leading-relaxed">
+                        Browse and execute tools from connected servers dynamically
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Status Box -->
+            <div class="bg-gradient-to-r from-green-400/20 to-green-600/20 glass rounded-2xl p-8 max-w-2xl mx-auto border-green-400/30 mb-12">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="w-3 h-3 bg-green-400 rounded-full pulse-dot mr-3"></div>
+                    <span class="text-green-100 font-semibold">System Status</span>
+                </div>
+                <p class="text-lg text-green-100">
+                    <strong>✅ YETR AI Agent Successfully Deployed!</strong>
+                </p>
+                <p class="text-green-200 text-sm mt-2">
+                    Static version is live and accessible. Full backend integration coming soon.
+                </p>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button onclick="showDemo()" class="glass hover:bg-white/30 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 border border-white/20">
+                    🚀 Try Demo
+                </button>
+                <button onclick="showDocumentation()" class="bg-transparent hover:bg-white/10 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 border-2 border-white/30 hover:border-white/50">
+                    📚 Documentation
+                </button>
+                <a href="https://github.com/yethikrishna/yetr-ai-agent" target="_blank" class="bg-white/20 hover:bg-white/30 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 border border-white/20 inline-block">
+                    💻 View Source
+                </a>
+            </div>
+            
+            <!-- Tech Stack -->
+            <div class="glass rounded-2xl p-6 max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold mb-4">🛠️ Technology Stack</h3>
+                <div class="grid md:grid-cols-3 gap-4 text-sm">
+                    <div>
+                        <strong class="text-blue-200">Frontend:</strong>
+                        <p class="text-blue-100">Next.js, React, TypeScript, Tailwind CSS</p>
+                    </div>
+                    <div>
+                        <strong class="text-purple-200">Backend:</strong>
+                        <p class="text-purple-100">FastAPI, Python, PostgreSQL, Redis</p>
+                    </div>
+                    <div>
+                        <strong class="text-indigo-200">Integration:</strong>
+                        <p class="text-indigo-100">MCP Servers, WebSocket, REST API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Demo Modal -->
+    <div id="demoModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="glass rounded-2xl p-8 max-w-2xl w-full text-white">
+                <h3 class="text-2xl font-bold mb-4">🚀 YETR AI Agent Demo</h3>
+                <div class="space-y-4 mb-6">
+                    <div class="bg-white/10 rounded-lg p-4">
+                        <p class="text-sm opacity-90 mb-2">User:</p>
+                        <p class="bg-blue-500/20 rounded p-2">Connect to GitHub MCP server and list my repositories</p>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-4">
+                        <p class="text-sm opacity-90 mb-2">YETR Agent:</p>
+                        <p class="bg-green-500/20 rounded p-2">✅ Connected to GitHub MCP server<br>
+                        📂 Found 12 repositories:<br>
+                        • yetr-ai-agent (active)<br>
+                        • portfolio-website<br>
+                        • ml-projects<br>
+                        ...</p>
+                    </div>
+                </div>
+                <button onclick="hideDemo()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors">
+                    Close Demo
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Documentation Modal -->
+    <div id="docModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="glass rounded-2xl p-8 max-w-4xl w-full text-white max-h-[80vh] overflow-y-auto">
+                <h3 class="text-2xl font-bold mb-4">📚 Documentation</h3>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2">🎯 What is YETR?</h4>
+                        <p class="text-blue-100 leading-relaxed">
+                            YETR (Your Enhanced Task Runner) is an advanced AI agent that connects to multiple 
+                            Model Context Protocol (MCP) servers simultaneously, enabling intelligent task automation 
+                            across diverse tools and data sources.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2">🔗 MCP Integration</h4>
+                        <p class="text-blue-100 leading-relaxed">
+                            Supports connections to GitHub, databases, file systems, web APIs, and custom MCP servers. 
+                            Intelligently routes tasks to the most appropriate tools.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2">🚀 Getting Started</h4>
+                        <ol class="text-blue-100 leading-relaxed list-decimal list-inside space-y-1">
+                            <li>Clone the repository</li>
+                            <li>Install dependencies: <code class="bg-white/20 px-2 py-1 rounded">npm install</code></li>
+                            <li>Configure MCP servers</li>
+                            <li>Run: <code class="bg-white/20 px-2 py-1 rounded">npm run dev</code></li>
+                        </ol>
+                    </div>
+                </div>
+                <button onclick="hideDocumentation()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors mt-6">
+                    Close Documentation
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showDemo() {
+            document.getElementById('demoModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideDemo() {
+            document.getElementById('demoModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function showDocumentation() {
+            document.getElementById('docModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideDocumentation() {
+            document.getElementById('docModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modals when clicking outside
+        document.addEventListener('click', function(e) {
+            if (e.target.id === 'demoModal') hideDemo();
+            if (e.target.id === 'docModal') hideDocumentation();
+        });
+        
+        // Close modals with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                hideDemo();
+                hideDocumentation();
+            }
+        });
+        
+        console.log('🤖 YETR AI Agent loaded successfully!');
+        console.log('GitHub: https://github.com/yethikrishna/yetr-ai-agent');
+    </script>
+</body>
+</html>
