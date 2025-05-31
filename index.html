@@ -5,14 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YETR AI Agent - Your Enhanced Task Runner</title>
     <meta name="description" content="Your Enhanced Task Runner - AI Agent with Multi-MCP Integration">
+    <meta name="keywords" content="AI, MCP, Task Runner, Artificial Intelligence, Automation">
+    <meta name="author" content="yethikrishna">
     
-    <!-- Tailwind CSS CDN -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yetr-ai-agent.netlify.app/">
+    <meta property="og:title" content="YETR AI Agent - Your Enhanced Task Runner">
+    <meta property="og:description" content="A powerful AI agent system that connects to multiple MCP servers simultaneously for intelligent task automation.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="YETR AI Agent - Your Enhanced Task Runner">
+    <meta property="twitter:description" content="A powerful AI agent system that connects to multiple MCP servers simultaneously for intelligent task automation.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -47,10 +69,26 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700">
-    <main class="container mx-auto px-4 py-16">
+    <!-- Loading spinner (hidden by default) -->
+    <div id="loading" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-50">
+        <div class="flex items-center justify-center min-h-screen">
+            <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-16 fade-in">
         <div class="text-center text-white">
             <!-- Header -->
             <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text">
@@ -60,6 +98,12 @@
                 Your Enhanced Task Runner - A powerful AI agent system that connects to multiple MCP servers 
                 simultaneously for intelligent task automation.
             </p>
+            
+            <!-- Status Badge -->
+            <div class="inline-flex items-center glass rounded-full px-6 py-3 mb-8">
+                <div class="w-3 h-3 bg-green-400 rounded-full pulse-dot mr-3"></div>
+                <span class="text-sm font-medium">🚀 Successfully Deployed on Netlify</span>
+            </div>
             
             <!-- Feature Cards -->
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
@@ -96,17 +140,17 @@
                 </div>
             </div>
             
-            <!-- Status Box -->
+            <!-- Main Status Box -->
             <div class="bg-gradient-to-r from-green-400/20 to-green-600/20 glass rounded-2xl p-8 max-w-2xl mx-auto border-green-400/30 mb-12">
                 <div class="flex items-center justify-center mb-4">
                     <div class="w-3 h-3 bg-green-400 rounded-full pulse-dot mr-3"></div>
-                    <span class="text-green-100 font-semibold">System Status</span>
+                    <span class="text-green-100 font-semibold">Deployment Status</span>
                 </div>
                 <p class="text-lg text-green-100">
-                    <strong>✅ YETR AI Agent Successfully Deployed!</strong>
+                    <strong>✅ YETR AI Agent Successfully Deployed on Netlify!</strong>
                 </p>
                 <p class="text-green-200 text-sm mt-2">
-                    Static version is live and accessible. Full backend integration coming soon.
+                    Static version is live and fully functional. Backend integration coming soon.
                 </p>
             </div>
             
@@ -118,7 +162,7 @@
                 <button onclick="showDocumentation()" class="bg-transparent hover:bg-white/10 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 border-2 border-white/30 hover:border-white/50">
                     📚 Documentation
                 </button>
-                <a href="https://github.com/yethikrishna/yetr-ai-agent" target="_blank" class="bg-white/20 hover:bg-white/30 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 border border-white/20 inline-block">
+                <a href="https://github.com/yethikrishna/yetr-ai-agent" target="_blank" rel="noopener noreferrer" class="glass hover:bg-white/30 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 border border-white/20 inline-block">
                     💻 View Source
                 </a>
             </div>
@@ -136,8 +180,8 @@
                         <p class="text-purple-100">FastAPI, Python, PostgreSQL, Redis</p>
                     </div>
                     <div>
-                        <strong class="text-indigo-200">Integration:</strong>
-                        <p class="text-indigo-100">MCP Servers, WebSocket, REST API</p>
+                        <strong class="text-indigo-200">Deployment:</strong>
+                        <p class="text-indigo-100">Netlify, GitHub Pages, Vercel</p>
                     </div>
                 </div>
             </div>
@@ -150,21 +194,34 @@
             <div class="glass rounded-2xl p-8 max-w-2xl w-full text-white">
                 <h3 class="text-2xl font-bold mb-4">🚀 YETR AI Agent Demo</h3>
                 <div class="space-y-4 mb-6">
-                    <div class="bg-white/10 rounded-lg p-4">
+                    <div class="glass rounded-lg p-4">
                         <p class="text-sm opacity-90 mb-2">User:</p>
-                        <p class="bg-blue-500/20 rounded p-2">Connect to GitHub MCP server and list my repositories</p>
+                        <p class="bg-blue-500/20 rounded p-2">Connect to GitHub MCP server and analyze my repositories</p>
                     </div>
-                    <div class="bg-white/10 rounded-lg p-4">
+                    <div class="glass rounded-lg p-4">
                         <p class="text-sm opacity-90 mb-2">YETR Agent:</p>
                         <p class="bg-green-500/20 rounded p-2">✅ Connected to GitHub MCP server<br>
-                        📂 Found 12 repositories:<br>
-                        • yetr-ai-agent (active)<br>
-                        • portfolio-website<br>
-                        • ml-projects<br>
-                        ...</p>
+                        📊 Analysis complete for 12 repositories:<br>
+                        • yetr-ai-agent: React/Next.js project (active)<br>
+                        • portfolio-website: Static site<br>
+                        • ml-projects: Python ML experiments<br>
+                        📈 Total commits: 247 | Languages: JS, Python, HTML</p>
+                    </div>
+                    <div class="glass rounded-lg p-4">
+                        <p class="text-sm opacity-90 mb-2">User:</p>
+                        <p class="bg-blue-500/20 rounded p-2">Create a deployment strategy for yetr-ai-agent</p>
+                    </div>
+                    <div class="glass rounded-lg p-4">
+                        <p class="text-sm opacity-90 mb-2">YETR Agent:</p>
+                        <p class="bg-green-500/20 rounded p-2">🎯 Deployment strategy created:<br>
+                        1. Static version → Netlify (current)<br>
+                        2. React version → Vercel<br>
+                        3. Backend API → Railway/Render<br>
+                        4. Database → PostgreSQL on Supabase<br>
+                        ✅ All configurations generated and ready!</p>
                     </div>
                 </div>
-                <button onclick="hideDemo()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors">
+                <button onclick="hideDemo()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors w-full">
                     Close Demo
                 </button>
             </div>
@@ -189,20 +246,30 @@
                         <h4 class="text-lg font-semibold mb-2">🔗 MCP Integration</h4>
                         <p class="text-blue-100 leading-relaxed">
                             Supports connections to GitHub, databases, file systems, web APIs, and custom MCP servers. 
-                            Intelligently routes tasks to the most appropriate tools.
+                            Intelligently routes tasks to the most appropriate tools for optimal results.
                         </p>
                     </div>
                     <div>
-                        <h4 class="text-lg font-semibold mb-2">🚀 Getting Started</h4>
-                        <ol class="text-blue-100 leading-relaxed list-decimal list-inside space-y-1">
-                            <li>Clone the repository</li>
-                            <li>Install dependencies: <code class="bg-white/20 px-2 py-1 rounded">npm install</code></li>
-                            <li>Configure MCP servers</li>
-                            <li>Run: <code class="bg-white/20 px-2 py-1 rounded">npm run dev</code></li>
-                        </ol>
+                        <h4 class="text-lg font-semibold mb-2">🌟 Key Features</h4>
+                        <ul class="text-blue-100 leading-relaxed list-disc list-inside space-y-1">
+                            <li>Multi-server connection management</li>
+                            <li>Intelligent task planning and execution</li>
+                            <li>Real-time chat interface</li>
+                            <li>Tool discovery and routing</li>
+                            <li>Context-aware responses</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2">🚀 Deployment Options</h4>
+                        <ul class="text-blue-100 leading-relaxed list-disc list-inside space-y-1">
+                            <li>Static HTML (current) - Universal compatibility</li>
+                            <li>Next.js React - Full interactive features</li>
+                            <li>Backend API - FastAPI with database</li>
+                            <li>Full stack - Complete MCP integration</li>
+                        </ul>
                     </div>
                 </div>
-                <button onclick="hideDocumentation()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors mt-6">
+                <button onclick="hideDocumentation()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors mt-6 w-full">
                     Close Documentation
                 </button>
             </div>
@@ -210,6 +277,7 @@
     </div>
     
     <script>
+        // Modal functions
         function showDemo() {
             document.getElementById('demoModal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -244,8 +312,16 @@
             }
         });
         
-        console.log('🤖 YETR AI Agent loaded successfully!');
-        console.log('GitHub: https://github.com/yethikrishna/yetr-ai-agent');
+        // Performance tracking
+        window.addEventListener('load', function() {
+            console.log('🚀 YETR AI Agent loaded successfully!');
+            console.log('📊 Page load time:', performance.now().toFixed(2) + 'ms');
+            console.log('🔗 GitHub: https://github.com/yethikrishna/yetr-ai-agent');
+            
+            // Remove any loading indicators
+            const loading = document.getElementById('loading');
+            if (loading) loading.remove();
+        });
     </script>
 </body>
 </html>
