@@ -1,0 +1,139 @@
+{
+  "servers": [
+    {
+      "id": "filesystem-server",
+      "name": "Filesystem MCP",
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-filesystem",
+        "/tmp/mcp-demo"
+      ],
+      "env": {},
+      "description": "Secure file operations with configurable access controls",
+      "enabled": true
+    },
+    {
+      "id": "github-server",
+      "name": "GitHub MCP",
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-github",
+        "--github-personal-access-token",
+        "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": ""
+      },
+      "description": "GitHub repository management and operations",
+      "enabled": false
+    },
+    {
+      "id": "postgres-server",
+      "name": "PostgreSQL MCP",
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-postgres",
+        "${DATABASE_URL}"
+      ],
+      "env": {
+        "DATABASE_URL": "postgresql://yetr_user:yetr_password@localhost:5432/yetr_db"
+      },
+      "description": "PostgreSQL database operations and queries",
+      "enabled": true
+    },
+    {
+      "id": "web-search-server",
+      "name": "Web Search MCP",
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-brave-search",
+        "${BRAVE_API_KEY}"
+      ],
+      "env": {
+        "BRAVE_API_KEY": ""
+      },
+      "description": "Web search capabilities using Brave Search API",
+      "enabled": false
+    },
+    {
+      "id": "memory-server",
+      "name": "Memory MCP",
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-memory"
+      ],
+      "env": {},
+      "description": "Knowledge graph-based persistent memory system",
+      "enabled": true
+    },
+    {
+      "id": "fetch-server",
+      "name": "Fetch MCP",
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-fetch"
+      ],
+      "env": {},
+      "description": "Web content fetching and conversion for efficient LLM usage",
+      "enabled": true
+    },
+    {
+      "id": "time-server",
+      "name": "Time MCP",
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-time"
+      ],
+      "env": {},
+      "description": "Time and timezone conversion capabilities",
+      "enabled": true
+    },
+    {
+      "id": "sequential-thinking-server",
+      "name": "Sequential Thinking MCP",
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "env": {},
+      "description": "Dynamic and reflective problem-solving through thought sequences",
+      "enabled": true
+    }
+  ],
+  "settings": {
+    "default_timeout": 30,
+    "max_retries": 3,
+    "health_check_interval": 60,
+    "connection_pool_size": 10,
+    "log_level": "INFO"
+  },
+  "development": {
+    "enable_mock_servers": true,
+    "mock_servers": [
+      {
+        "id": "mock-github",
+        "name": "Mock GitHub MCP",
+        "command": "python",
+        "args": ["-m", "mock_mcp_servers.github"],
+        "description": "Mock GitHub integration for development",
+        "enabled": true
+      },
+      {
+        "id": "mock-aws",
+        "name": "Mock AWS MCP",
+        "command": "python",
+        "args": ["-m", "mock_mcp_servers.aws"],
+        "description": "Mock AWS integration for development",
+        "enabled": true
+      },
+      {
+        "id": "mock-database",
+        "name": "Mock Database MCP",
+        "command": "python",
+        "args": ["-m", "mock_mcp_servers.database"],
+        "description": "Mock database integration for development",
+        "enabled": true
+      }
+    ]
+  }
+}

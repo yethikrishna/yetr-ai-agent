@@ -1,0 +1,30 @@
+{
+  "architecture": {
+    "core_concepts": {},
+    "communication_protocol": {},
+    "components": {},
+    "message_types": {},
+    "transport_mechanisms": []
+  },
+  "implementations": {
+    "official_servers": [],
+    "community_servers": [],
+    "sdks": {},
+    "frameworks": []
+  },
+  "security": {
+    "authentication_methods": [],
+    "authorization_patterns": [],
+    "security_risks": [],
+    "best_practices": [],
+    "deployment_considerations": []
+  },
+  "api_structure": {
+    "protocol": "",
+    "message_format": "",
+    "transport_types": [],
+    "request_response_patterns": {},
+    "error_handling": {},
+    "lifecycle_management": []
+  }
+}
