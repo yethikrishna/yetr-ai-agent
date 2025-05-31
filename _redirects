@@ -1,0 +1,7 @@
+# Netlify redirects file for static HTML site
+/*    /index.html   200
+
+# Specific page redirects (for future expansion)
+/docs/*   /index.html   200
+/demo/*   /index.html   200
+/chat/*   /index.html   200
