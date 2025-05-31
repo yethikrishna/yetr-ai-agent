@@ -1,0 +1,23 @@
+{
+  "name": "yetr-ai-agent-static",
+  "version": "1.0.0",
+  "description": "YETR AI Agent - Static HTML Version",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Open index.html in your browser'",
+    "deploy": "echo 'Static site ready for deployment'"
+  },
+  "keywords": [
+    "ai",
+    "mcp",
+    "static-site",
+    "html"
+  ],
+  "author": "yethikrishna",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yethikrishna/yetr-ai-agent.git"
+  },
+  "homepage": "https://github.com/yethikrishna/yetr-ai-agent"
+}
