@@ -1,26 +1,24 @@
 {
   "name": "yetr-ai-agent",
-  "version": "1.0.0",
-  "description": "YETR AI Agent - Your Enhanced Task Runner with Multi-MCP Integration",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "cd frontend && npm run dev",
-    "build": "cd frontend && npm run build",
-    "start": "cd frontend && npm start",
-    "install-all": "cd frontend && npm install"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": [
-    "ai",
-    "mcp",
-    "model-context-protocol",
-    "chatbot",
-    "nextjs",
-    "typescript"
-  ],
-  "author": "yethikrishna",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yethikrishna/yetr-ai-agent.git"
+  "dependencies": {
+    "next": "14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
-  "homepage": "https://github.com/yethikrishna/yetr-ai-agent"
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "14.0.0"
+  }
 }
