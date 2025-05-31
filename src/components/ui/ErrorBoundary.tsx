@@ -36,29 +36,33 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
 
       return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
-          <div className="max-w-md w-full bg-white shadow-lg rounded-lg p-6">
-            <div className="flex items-center justify-center w-12 h-12 mx-auto bg-red-100 rounded-full mb-4">
-              <span className="text-red-600 text-xl">⚠️</span>
-            </div>
-            <h2 className="text-xl font-semibold text-gray-900 text-center mb-2">
-              Something went wrong
-            </h2>
-            <p className="text-gray-600 text-center mb-6">
-              We're sorry, but something unexpected happened.
-            </p>
-            <div className="flex space-x-3">
-              <button
-                onClick={this.handleReset}
-                className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
-              >
-                🔄 Try Again
-              </button>
-              <button
-                onClick={() => window.location.href = '/'}
-                className="flex-1 bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition-colors"
-              >
-                🏠 Go Home
-              </button>
+          <div className="max-w-md w-full bg-white shadow-xl rounded-2xl p-8">
+            <div className="text-center">
+              <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-red-100 mb-6">
+                <span className="text-red-600 text-2xl">⚠️</span>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Oops! Something went wrong
+              </h2>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                We encountered an unexpected error. Don't worry, you can try again or go back to the home page.
+              </p>
+              <div className="space-y-3">
+                <button
+                  onClick={this.handleReset}
+                  className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center space-x-2"
+                >
+                  <span>🔄</span>
+                  <span>Try Again</span>
+                </button>
+                <button
+                  onClick={() => window.location.href = '/'}
+                  className="w-full bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-200 flex items-center justify-center space-x-2"
+                >
+                  <span>🏠</span>
+                  <span>Go Home</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
