@@ -6,7 +6,6 @@
   "outputDirectory": "frontend/.next",
   "installCommand": "cd frontend && npm install",
   "devCommand": "cd frontend && npm run dev",
-  "cleanBuildDir": true,
   "functions": {
     "frontend/src/pages/api/**": {
       "runtime": "nodejs18.x"
