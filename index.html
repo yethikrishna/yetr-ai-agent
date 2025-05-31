@@ -13,12 +13,6 @@
     <meta property="og:url" content="https://yethikrishna.github.io/yetr-ai-agent/">
     <meta property="og:title" content="YETR AI Agent - Your Enhanced Task Runner">
     <meta property="og:description" content="Advanced AI agent system with multi-MCP integration and intelligent task automation">
-    <meta property="og:image" content="https://yethikrishna.github.io/yetr-ai-agent/og-image.png">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="YETR AI Agent - Your Enhanced Task Runner">
-    <meta name="twitter:description" content="Advanced AI agent system with multi-MCP integration">
     
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
@@ -26,7 +20,6 @@
     <!-- Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -83,10 +76,6 @@
             background-clip: text;
         }
         
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
         .pulse-dot {
             animation: pulse 2s infinite;
         }
@@ -123,15 +112,6 @@
         
         .nav-link:hover::after {
             width: 100%;
-        }
-        
-        .typing-cursor {
-            animation: blink 1s infinite;
-        }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
         }
         
         .chat-message {
@@ -338,10 +318,10 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-                    Interactive Demo
+                    Interactive Chat Demo
                 </h2>
                 <p class="text-xl text-white/80 max-w-3xl mx-auto">
-                    Experience YETR's capabilities with our live chat demo. Ask questions, request analyses, and see intelligent responses in real-time.
+                    Experience YETR's capabilities with our live chat demo. Ask questions about GitHub analysis, deployment help, MCP integration, and more!
                 </p>
             </div>
             
@@ -352,20 +332,20 @@
                         <div class="flex items-center justify-between mb-6">
                             <div class="flex items-center space-x-3">
                                 <div class="w-3 h-3 bg-green-400 rounded-full pulse-dot"></div>
-                                <span class="font-semibold">YETR AI Agent - Live Demo</span>
+                                <span class="font-semibold">YETR AI Agent - Interactive Demo</span>
                             </div>
-                            <button onclick="clearChat()" class="text-white/60 hover:text-white text-sm">Clear Chat</button>
+                            <button onclick="clearChat()" class="text-white/60 hover:text-white text-sm transition-colors">Clear Chat</button>
                         </div>
                         
-                        <div id="chatMessages" class="flex-1 space-y-4 mb-6 overflow-y-auto">
+                        <div id="chatMessages" class="flex-1 space-y-4 mb-6 overflow-y-auto max-h-80">
                             <!-- Initial message -->
-                            <div class="flex items-start space-x-3">
+                            <div class="flex items-start space-x-3 chat-message">
                                 <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-sm font-bold">
                                     🤖
                                 </div>
                                 <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl p-4 max-w-md">
                                     <p class="text-white">
-                                        👋 Hello! I'm YETR, your Enhanced Task Runner. I can help you with GitHub repository analysis, project deployment, MCP server integration, and much more. What would you like to explore?
+                                        👋 Hello! I'm YETR, your Enhanced Task Runner. I can help you with GitHub repository analysis, project deployment, MCP server integration, and intelligent task automation. What would you like to know?
                                     </p>
                                 </div>
                             </div>
@@ -376,7 +356,7 @@
                             <input 
                                 id="chatInput" 
                                 type="text" 
-                                placeholder="Ask me about GitHub analysis, deployment, or MCP integration..." 
+                                placeholder="Ask me anything about AI automation, GitHub analysis, or MCP integration..." 
                                 class="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
                                 onkeypress="handleChatInput(event)"
                             >
@@ -392,7 +372,7 @@
                     <!-- Quick Actions -->
                     <div class="grid md:grid-cols-3 gap-4">
                         <button 
-                            onclick="quickMessage('Analyze my GitHub repositories and provide insights')" 
+                            onclick="quickMessage('Can you analyze my GitHub repositories and provide insights?')" 
                             class="glass hover:glass-strong p-4 rounded-xl text-left transition-all hover:scale-105"
                         >
                             <div class="text-2xl mb-2">📊</div>
@@ -401,7 +381,7 @@
                         </button>
                         
                         <button 
-                            onclick="quickMessage('Help me deploy my React project to multiple platforms')" 
+                            onclick="quickMessage('How can you help me deploy my project to multiple platforms?')" 
                             class="glass hover:glass-strong p-4 rounded-xl text-left transition-all hover:scale-105"
                         >
                             <div class="text-2xl mb-2">🚀</div>
@@ -410,7 +390,7 @@
                         </button>
                         
                         <button 
-                            onclick="quickMessage('What MCP servers can you connect to and what capabilities do they provide?')" 
+                            onclick="quickMessage('What MCP servers can you connect to and what do they do?')" 
                             class="glass hover:glass-strong p-4 rounded-xl text-left transition-all hover:scale-105"
                         >
                             <div class="text-2xl mb-2">🔗</div>
@@ -441,35 +421,35 @@
                     <div class="text-3xl mb-4">🚀</div>
                     <h3 class="text-xl font-bold mb-3">Quick Start</h3>
                     <p class="text-white/80 mb-4">Get up and running with YETR in minutes. Installation, configuration, and first steps.</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">Read Guide →</a>
+                    <a href="https://github.com/yethikrishna/yetr-ai-agent#-quick-start" target="_blank" class="text-blue-400 hover:text-blue-300 font-semibold">Read Guide →</a>
                 </div>
                 
                 <div class="glass rounded-2xl p-6 card-hover">
                     <div class="text-3xl mb-4">📚</div>
                     <h3 class="text-xl font-bold mb-3">API Reference</h3>
                     <p class="text-white/80 mb-4">Comprehensive API documentation with examples and interactive playground.</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">View API →</a>
+                    <a href="https://github.com/yethikrishna/yetr-ai-agent#-documentation" target="_blank" class="text-blue-400 hover:text-blue-300 font-semibold">View API →</a>
                 </div>
                 
                 <div class="glass rounded-2xl p-6 card-hover">
                     <div class="text-3xl mb-4">🔗</div>
                     <h3 class="text-xl font-bold mb-3">MCP Integration</h3>
                     <p class="text-white/80 mb-4">Learn how to connect and configure various MCP servers with detailed examples.</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">Learn More →</a>
+                    <a href="https://github.com/yethikrishna/yetr-ai-agent#-multi-mcp-integration" target="_blank" class="text-blue-400 hover:text-blue-300 font-semibold">Learn More →</a>
                 </div>
                 
                 <div class="glass rounded-2xl p-6 card-hover">
                     <div class="text-3xl mb-4">🏗️</div>
                     <h3 class="text-xl font-bold mb-3">Architecture</h3>
                     <p class="text-white/80 mb-4">Deep dive into YETR's system architecture and design principles.</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">Explore →</a>
+                    <a href="https://github.com/yethikrishna/yetr-ai-agent#-architecture" target="_blank" class="text-blue-400 hover:text-blue-300 font-semibold">Explore →</a>
                 </div>
                 
                 <div class="glass rounded-2xl p-6 card-hover">
                     <div class="text-3xl mb-4">🔧</div>
                     <h3 class="text-xl font-bold mb-3">Deployment</h3>
                     <p class="text-white/80 mb-4">Production deployment guides for various platforms and environments.</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">Deploy →</a>
+                    <a href="https://github.com/yethikrishna/yetr-ai-agent#-quick-start" target="_blank" class="text-blue-400 hover:text-blue-300 font-semibold">Deploy →</a>
                 </div>
                 
                 <div class="glass rounded-2xl p-6 card-hover">
@@ -516,10 +496,10 @@
                 <div>
                     <h4 class="font-semibold mb-4">Resources</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-white/70 hover:text-white transition-colors">API Reference</a></li>
-                        <li><a href="#" class="text-white/70 hover:text-white transition-colors">Examples</a></li>
-                        <li><a href="#" class="text-white/70 hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="#" class="text-white/70 hover:text-white transition-colors">Support</a></li>
+                        <li><a href="https://github.com/yethikrishna/yetr-ai-agent#-documentation" target="_blank" class="text-white/70 hover:text-white transition-colors">API Reference</a></li>
+                        <li><a href="https://github.com/yethikrishna/yetr-ai-agent#examples" target="_blank" class="text-white/70 hover:text-white transition-colors">Examples</a></li>
+                        <li><a href="#demo" class="text-white/70 hover:text-white transition-colors">Live Demo</a></li>
+                        <li><a href="https://github.com/yethikrishna/yetr-ai-agent/issues" target="_blank" class="text-white/70 hover:text-white transition-colors">Support</a></li>
                     </ul>
                 </div>
             </div>
@@ -553,14 +533,227 @@
             });
         });
         
-        // Chat functionality
-        const chatResponses = {
-            'github': '📊 I can analyze your GitHub repositories comprehensively! I examine code quality, commit patterns, language distribution, collaboration metrics, and project health. For your yetr-ai-agent repository, I can see it's a sophisticated React/TypeScript project with excellent documentation and modern architecture. Would you like me to dive deeper into specific metrics?',
-            'deploy': '🚀 I can help you deploy to multiple platforms! For React/Next.js projects like yours, I recommend: 1) **Vercel** for optimal Next.js performance, 2) **Netlify** for static sites with great CI/CD, 3) **GitHub Pages** for simplicity, 4) **Railway** for full-stack apps. I can generate specific deployment configs for each platform. Which would you prefer?',
-            'mcp': '🔗 I can connect to 50+ MCP servers! Key integrations include: **Development**: GitHub API, GitLab, File Systems, Databases (PostgreSQL, MongoDB). **Productivity**: Email (Gmail, Outlook), Calendar, Slack, Discord. **Data**: Web Search, APIs, RSS feeds. **AI**: OpenAI, Anthropic, local models. Each server provides specific capabilities - GitHub for repo management, databases for data operations, etc. Which integration interests you most?',
-            'features': '⚡ YETR's key features include: **Multi-MCP Integration** (connect 50+ servers simultaneously), **Intelligent Routing** (automatic tool selection), **Real-time Chat** (context-aware conversations), **Task Orchestration** (complex multi-step automation), **Security** (JWT auth, encrypted connections), **Scalability** (horizontal scaling, load balancing). Each feature is designed for enterprise-grade reliability.',
-            'architecture': '🏗️ YETR uses a modern microservices architecture: **Frontend** (React 18 + Next.js 14 + TypeScript), **Backend** (FastAPI + Python + PostgreSQL + Redis), **MCP Layer** (connection pooling + health monitoring), **Security** (JWT + OAuth 2.1), **Infrastructure** (Docker + Kubernetes + CI/CD). The system is designed for high availability and horizontal scaling.',
-            'default': '🤖 That's a great question! YETR can handle complex queries like that by leveraging its multi-MCP integration. In a full deployment, I would: 1) Analyze the request context, 2) Route to appropriate MCP servers, 3) Orchestrate parallel operations, 4) Synthesize results into actionable insights. The demo shows the interface - the backend provides the real intelligence. What specific capability would you like to explore?'
+        // Enhanced chat functionality with comprehensive responses
+        const chatDatabase = {
+            // GitHub-related questions
+            'github': {
+                keywords: ['github', 'repository', 'repo', 'analyze', 'analysis', 'code'],
+                response: '📊 I can provide comprehensive GitHub repository analysis! Here's what I can do:
+
+🔍 **Repository Analysis:**
+• Code quality metrics and technical debt assessment
+• Commit patterns and development velocity
+• Language distribution and framework usage
+• Collaboration metrics and contributor insights
+• Security vulnerability scanning
+• Performance optimization recommendations
+
+📈 **For your yetr-ai-agent repository specifically:**
+• Modern React/TypeScript architecture ✅
+• Excellent documentation structure ✅
+• Professional CI/CD setup ✅
+• Clean component organization ✅
+
+Would you like me to dive deeper into any specific aspect?'
+            },
+            
+            'deploy': {
+                keywords: ['deploy', 'deployment', 'platform', 'hosting', 'vercel', 'netlify'],
+                response: '🚀 I can help you deploy to multiple platforms! Here's my comprehensive deployment strategy:
+
+**🌟 Recommended Platforms:**
+
+1. **Vercel** (Best for Next.js)
+   • Automatic optimization for React/Next.js
+   • Global CDN with edge functions
+   • One-click deployment from GitHub
+   • Custom domains and SSL
+
+2. **Netlify** (Great for static sites)
+   • Excellent CI/CD integration
+   • Form handling and serverless functions
+   • Branch previews and A/B testing
+   • Easy custom domain setup
+
+3. **GitHub Pages** (Free and reliable)
+   • Direct integration with your repository
+   • Automatic HTTPS and CDN
+   • Custom domain support
+   • Perfect for documentation sites
+
+4. **Railway/Render** (Full-stack applications)
+   • Database hosting included
+   • Auto-scaling and monitoring
+   • Environment variable management
+
+Which platform interests you most? I can provide specific deployment configurations!'
+            },
+            
+            'mcp': {
+                keywords: ['mcp', 'server', 'integration', 'connect', 'protocol', 'api'],
+                response: '🔗 I can connect to 50+ MCP servers simultaneously! Here's my integration ecosystem:
+
+**🛠️ Development Tools:**
+• **GitHub API** - Repository management, issues, PRs
+• **GitLab** - Project management and CI/CD
+• **File Systems** - Local and cloud file operations
+• **Databases** - PostgreSQL, MongoDB, Redis
+
+**📧 Productivity Services:**
+• **Email** - Gmail, Outlook integration
+• **Calendar** - Google Calendar, Outlook Calendar
+• **Communication** - Slack, Discord, Teams
+• **Documents** - Google Docs, Notion, Confluence
+
+**🌐 Data Sources:**
+• **Web Search** - Google, Bing, DuckDuckGo
+• **APIs** - REST, GraphQL, WebSocket
+• **RSS Feeds** - News and content aggregation
+• **Social Media** - Twitter, LinkedIn APIs
+
+**🤖 AI Services:**
+• **OpenAI** - GPT models and embeddings
+• **Anthropic** - Claude integration
+• **Local Models** - Ollama, Hugging Face
+• **Custom AI** - Your own model endpoints
+
+Each server provides specialized capabilities. Which integration would be most valuable for your use case?'
+            },
+            
+            'features': {
+                keywords: ['feature', 'capability', 'what can', 'abilities', 'functions'],
+                response: '⚡ YETR offers cutting-edge AI automation features:
+
+**🧠 Core AI Capabilities:**
+• **Natural Language Processing** - Understanding complex queries
+• **Task Decomposition** - Breaking down complex requests
+• **Context Management** - Remembering conversation history
+• **Intelligent Routing** - Selecting optimal tools automatically
+
+**🔗 Multi-MCP Orchestration:**
+• **Parallel Execution** - Running multiple tasks simultaneously
+• **Dependency Management** - Handling task prerequisites
+• **Error Recovery** - Graceful fallback strategies
+• **Load Balancing** - Distributing work across servers
+
+**💬 Interactive Interface:**
+• **Real-time Chat** - Instant response streaming
+• **Rich Responses** - Formatted output with syntax highlighting
+• **Quick Actions** - Pre-built command buttons
+• **Mobile Responsive** - Works on all devices
+
+**🔐 Enterprise Features:**
+• **JWT Authentication** - Secure user management
+• **Role-based Access** - Granular permissions
+• **Audit Logging** - Complete activity tracking
+• **Rate Limiting** - Preventing abuse
+
+**📊 Analytics & Monitoring:**
+• **Performance Metrics** - Response time tracking
+• **Usage Analytics** - User behavior insights
+• **Health Monitoring** - System status dashboard
+• **Error Tracking** - Comprehensive debugging
+
+Which feature category interests you most?'
+            },
+            
+            'architecture': {
+                keywords: ['architecture', 'technical', 'how does', 'system', 'design'],
+                response: '🏗️ YETR uses a sophisticated microservices architecture:
+
+**🎯 Frontend Layer:**
+• **React 18** - Modern component architecture
+• **Next.js 14** - Server-side rendering and optimization
+• **TypeScript** - Type-safe development
+• **Tailwind CSS** - Utility-first styling
+• **WebSocket** - Real-time communication
+
+**⚙️ Backend Services:**
+• **FastAPI** - High-performance Python framework
+• **PostgreSQL** - Robust relational database
+• **Redis** - High-speed caching and sessions
+• **Celery** - Distributed task processing
+• **SQLAlchemy** - Advanced ORM capabilities
+
+**🔗 MCP Integration Layer:**
+• **Connection Pooling** - Efficient resource management
+• **Health Monitoring** - Automatic server status checks
+• **Load Balancing** - Request distribution
+• **Circuit Breakers** - Fault tolerance patterns
+• **Message Queuing** - Asynchronous processing
+
+**🛡️ Security & Infrastructure:**
+• **JWT Authentication** - Stateless security
+• **OAuth 2.1** - Third-party integration
+• **Docker Containers** - Consistent deployment
+• **Kubernetes** - Container orchestration
+• **CI/CD Pipeline** - Automated deployment
+
+**📈 Scalability Features:**
+• **Horizontal Scaling** - Add more instances
+• **Database Sharding** - Distribute data load
+• **CDN Integration** - Global content delivery
+• **Auto-scaling** - Dynamic resource allocation
+
+The system is designed for enterprise-grade reliability and performance!'
+            },
+            
+            'help': {
+                keywords: ['help', 'how', 'what', 'can you', 'assistance'],
+                response: '🤖 I'm YETR, your Enhanced Task Runner! Here's how I can assist you:
+
+**💼 What I Can Do:**
+• **Repository Analysis** - Deep insights into your GitHub projects
+• **Deployment Guidance** - Multi-platform deployment strategies
+• **MCP Integration** - Connect to 50+ different services
+• **Task Automation** - Streamline your development workflow
+• **Technical Consulting** - Architecture and design advice
+
+**🎯 Popular Questions I Can Answer:**
+• "How do I optimize my GitHub repository?"
+• "What's the best deployment strategy for my project?"
+• "Which MCP servers should I integrate?"
+• "How can I automate my development workflow?"
+• "What are the best practices for AI agent architecture?"
+
+**🚀 Interactive Capabilities:**
+• Ask me anything about software development
+• Get personalized recommendations
+• Receive step-by-step guidance
+• Explore integration possibilities
+• Learn about AI automation
+
+What specific challenge are you facing? I'm here to help you succeed!'
+            },
+            
+            'demo': {
+                keywords: ['demo', 'example', 'show', 'test', 'try'],
+                response: '🎮 Welcome to the YETR AI Agent interactive demo! 
+
+**🌟 What You're Experiencing:**
+This is a fully functional chat interface that simulates my real capabilities. In production, I would:
+
+1. **Connect to Live MCP Servers** - Real GitHub API, databases, etc.
+2. **Process Complex Queries** - Multi-step task automation
+3. **Execute Actions** - Actually perform the requested operations
+4. **Provide Real-time Results** - Live data and insights
+
+**💡 Try These Demo Commands:**
+• "Analyze my GitHub profile"
+• "Help me deploy to Vercel"
+• "What databases can you connect to?"
+• "Show me your architecture"
+• "How do you handle authentication?"
+
+**🔮 In Production Mode:**
+• Real API connections and data
+• Persistent conversation history
+• User authentication and preferences
+• Advanced task orchestration
+• Live system monitoring
+
+This demo showcases the interface and response intelligence. The full version adds real-world integration and automation capabilities!'
+            }
         };
         
         function sendMessage() {
@@ -576,7 +769,7 @@
             
             setTimeout(() => {
                 hideTypingIndicator();
-                const response = generateResponse(message);
+                const response = generateIntelligentResponse(message);
                 addMessage(response, 'bot');
             }, 1500 + Math.random() * 1000);
         }
@@ -584,14 +777,14 @@
         function addMessage(text, sender) {
             const messagesContainer = document.getElementById('chatMessages');
             const messageDiv = document.createElement('div');
-            messageDiv.className = 'chat-message flex items-start space-x-3';
+            messageDiv.className = 'chat-message flex items-start space-x-3 mb-4';
             
             if (sender === 'user') {
                 messageDiv.innerHTML = `
                     <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-sm font-bold">
                         👤
                     </div>
-                    <div class="bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-2xl p-4 max-w-md">
+                    <div class="bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-2xl p-4 max-w-lg">
                         <p class="text-white">${text}</p>
                     </div>
                 `;
@@ -600,8 +793,8 @@
                     <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-sm font-bold">
                         🤖
                     </div>
-                    <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl p-4 max-w-md">
-                        <p class="text-white">${text}</p>
+                    <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl p-4 max-w-lg">
+                        <div class="text-white whitespace-pre-line">${text}</div>
                     </div>
                 `;
             }
@@ -614,7 +807,7 @@
             const messagesContainer = document.getElementById('chatMessages');
             const typingDiv = document.createElement('div');
             typingDiv.id = 'typingIndicator';
-            typingDiv.className = 'flex items-start space-x-3';
+            typingDiv.className = 'flex items-start space-x-3 mb-4';
             typingDiv.innerHTML = `
                 <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-sm font-bold">
                     🤖
@@ -638,22 +831,27 @@
             }
         }
         
-        function generateResponse(message) {
+        function generateIntelligentResponse(message) {
             const lowerMessage = message.toLowerCase();
             
-            if (lowerMessage.includes('github') || lowerMessage.includes('repository') || lowerMessage.includes('analyze')) {
-                return chatResponses.github;
-            } else if (lowerMessage.includes('deploy') || lowerMessage.includes('deployment') || lowerMessage.includes('platform')) {
-                return chatResponses.deploy;
-            } else if (lowerMessage.includes('mcp') || lowerMessage.includes('server') || lowerMessage.includes('integration') || lowerMessage.includes('connect')) {
-                return chatResponses.mcp;
-            } else if (lowerMessage.includes('feature') || lowerMessage.includes('capability') || lowerMessage.includes('what can')) {
-                return chatResponses.features;
-            } else if (lowerMessage.includes('architecture') || lowerMessage.includes('technical') || lowerMessage.includes('how does')) {
-                return chatResponses.architecture;
-            } else {
-                return chatResponses.default;
+            // Find the best matching response category
+            for (const [category, data] of Object.entries(chatDatabase)) {
+                if (data.keywords.some(keyword => lowerMessage.includes(keyword))) {
+                    return data.response;
+                }
             }
+            
+            // Fallback for unmatched queries
+            return `🤖 That's an excellent question! While this is a demo interface, YETR would handle that query by:
+
+1. **Analyzing your request** using natural language processing
+2. **Routing to appropriate MCP servers** based on the task type
+3. **Orchestrating multiple tools** if needed for complex operations
+4. **Synthesizing results** into actionable insights
+
+In the full version, I'd provide specific, real-time assistance for your query: "${message}"
+
+Try asking about GitHub analysis, deployment help, or MCP integration for more detailed responses!`;
         }
         
         function quickMessage(message) {
@@ -664,13 +862,13 @@
         function clearChat() {
             const messagesContainer = document.getElementById('chatMessages');
             messagesContainer.innerHTML = `
-                <div class="flex items-start space-x-3 chat-message">
+                <div class="flex items-start space-x-3 chat-message mb-4">
                     <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-sm font-bold">
                         🤖
                     </div>
-                    <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl p-4 max-w-md">
+                    <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl p-4 max-w-lg">
                         <p class="text-white">
-                            👋 Hello! I'm YETR, your Enhanced Task Runner. I can help you with GitHub repository analysis, project deployment, MCP server integration, and much more. What would you like to explore?
+                            👋 Hello! I'm YETR, your Enhanced Task Runner. I can help you with GitHub repository analysis, project deployment, MCP server integration, and intelligent task automation. What would you like to know?
                         </p>
                     </div>
                 </div>
@@ -685,9 +883,10 @@
         
         // Initialize
         window.addEventListener('load', function() {
-            console.log('🚀 YETR AI Agent loaded successfully!');
+            console.log('🚀 YETR AI Agent loaded successfully with enhanced chat!');
             console.log('🌐 URL: https://yethikrishna.github.io/yetr-ai-agent/');
             console.log('📊 Load time:', performance.now().toFixed(2) + 'ms');
+            console.log('💬 Chat system ready with intelligent responses!');
         });
         
         // Add scroll-based animations
