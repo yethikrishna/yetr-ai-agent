@@ -6,20 +6,15 @@
     "dev": "cd frontend && npm run dev",
     "build": "cd frontend && npm run build",
     "start": "cd frontend && npm start",
-    "install-all": "npm run install-frontend && npm run install-backend",
-    "install-frontend": "cd frontend && npm install",
-    "install-backend": "cd backend && pip install -r requirements.txt"
+    "install-all": "cd frontend && npm install"
   },
   "keywords": [
     "ai",
     "mcp",
-    "model-context-protocol", 
+    "model-context-protocol",
     "chatbot",
     "nextjs",
-    "fastapi",
-    "artificial-intelligence",
-    "task-automation",
-    "multi-tool-orchestration"
+    "typescript"
   ],
   "author": "yethikrishna",
   "license": "MIT",
@@ -27,9 +22,5 @@
     "type": "git",
     "url": "https://github.com/yethikrishna/yetr-ai-agent.git"
   },
-  "homepage": "https://github.com/yethikrishna/yetr-ai-agent",
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0"
-  }
+  "homepage": "https://github.com/yethikrishna/yetr-ai-agent"
 }
