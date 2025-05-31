@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yethikrishna.github.io/yetr-ai-agent/sitemap.xml
